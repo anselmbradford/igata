@@ -1,0 +1,9 @@
+#sign_up
+  %h2 Sign up
+  = simple_form_for @new_account || Account.new, :validate => true, :html => { :class => 'hide-label' }, :url => sign_up_path do |f|
+    = f.input :name, :placeholder => 'Name'
+    = f.input :email, :placeholder => 'Email', :as => :email
+    = f.input :username, :placeholder => 'Username'
+    = f.input :password, :placeholder => 'Password', :input_html => { :id => 'password' }
+    = f.input :password_confirmation, :placeholder => 'Confirm Password', :input_html => { :id => 'password_confirmation' }
+    = f.button :submit, 'Sign up'

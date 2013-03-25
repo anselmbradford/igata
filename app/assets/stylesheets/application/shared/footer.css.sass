@@ -1,0 +1,37 @@
+@import compass/css3
+
+$sky: #45A4FF
+$midnight: #16222F
+$l-sky: #BBDAF9
+$white: #FFFFFF
+$red: #F05051
+
+footer
+  overflow: hidden
+  background: $midnight
+  color: $sky
+  nav
+    text-align: center
+    margin-top: -.75em
+    ul
+      li
+        margin: 0 1em
+        display: inline-block
+        a
+          color: $sky
+        .dockyard
+          position: relative
+          top: 2.55em
+          text-decoration: none
+          .svg
+            margin: 0 auto
+            width: 100px
+            height: 100px
+            +transition-duration(3s)
+            +transition-property(fill)
+            &:hover path, &:hover polygon
+              fill: $l-sky
+footer, .push
+  height: 10em
+  display: block
+  clear: both

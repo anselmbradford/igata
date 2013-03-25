@@ -1,0 +1,271 @@
+@import compass/css3
+
+$sky: #45A4FF
+$midnight: #16222F
+$l-sky: #BBDAF9
+$white: #FFFFFF
+$red: #F05051
+
+input::-webkit-input-placeholder, input::-moz-placeholder, textarea::-webkit-input-placeholder, textarea::-moz-placeholder
+  color: darken($white, 60%)
+textarea
+  resize: none
+
+form
+  width: 480px
+  margin: 0 auto
+  div
+    position: relative
+    margin-bottom: 1.5em
+    label
+      color: $sky
+      display: block
+      margin: 0 0 .25em 0
+    input.string, input.numeric, input.password
+      width: 100%
+      padding: 10px
+      display: inline-block
+      +box-sizing(border-box)
+      font:
+        family: arial, sans-serif
+        size: 16px
+      border-style: none
+      background: rgba(0,0,0,.5)
+      color: $white
+  .field_with_errors
+    input.string, input.numeric, input.password
+      background: darken($red, 50%)
+    label
+      color: #F05051
+  p
+    margin-bottom: 1em
+  h2
+    margin-bottom: .5em
+  .error
+    color: $red
+    display: block
+    margin: 0 0 -16px 0
+    font-size: 15px
+    line-height: 16px
+    text-align: right
+
+#sign_in
+  a
+    float: right
+    
+  input.btn
+    float: left
+#sign_up
+  .btn
+    margin-top: 2em
+.heroku-help
+  display: block
+  margin-top: 1.5em
+  text-decoration: none
+  color: $sky
+#heroku-help-info
+  display: none
+  img
+    width: 500px
+    margin-top: .75em
+
+.screenshots
+  width: 90%
+  margin: 1em 0
+  display: block
+  input[type="file"]
+    width: 100%
+    margin: .5em 0
+    font:
+      family: arial, sans-serif
+      size: 16px
+    border-style: none
+
+  ul
+    margin: 1em 0 1.5em
+    li
+      margin-bottom: 1em
+
+.readme
+  h1, h2, h3
+    color: $l-sky
+    font-family: arial, sans-serif
+    text-align: left
+    font-weight: bold
+    margin: 0
+    padding: 0
+  h1
+    font-size: 1.5em
+  h2
+    font-size: 1.25em
+  h3
+    font-size: 1em
+  p
+    padding-bottom: 1em
+  textarea
+    width: 100%
+    +box-sizing(border-box)
+    background-color: rgba(0,0,0,.5)
+    border: none
+    color: white
+    padding: 10px
+    font:
+      size: 16px
+      family: Inconsolata, monospace
+
+#my_templates_edit, #my_templates_new
+  overflow: hidden
+  header
+    background: none
+    padding: 0 0 1em 0
+    .actions
+      float: right
+      .btn
+        margin: 0 0 10px 10px
+    .notice
+      clear: right
+      float: right
+      font-size: 16px
+      font-family: Arial, sans-serif
+    .delete
+      background: darken($red, 40%)
+      color: $red
+  h3
+    margin: 0 0 1em 0
+  .buttons
+    clear: both
+    overflow: hidden
+    a
+      display: inline-block
+    span
+      margin: 0 1em
+      color: #50798B
+  .addons
+    width: 100%
+    display: inline-block
+    label
+      padding-bottom: .25em
+    div
+      width: 50%
+      float: left
+      min-width: 320px
+      ul 
+        li
+          clear: both
+          input
+            margin-bottom: 1em
+            float: left
+            width: auto
+          label
+            padding: .25em 0
+            display: block
+    div:first-child
+      margin-left: 10%
+  form
+    margin: 0
+    width: 50%
+    float: left
+  .fancy
+    margin-left: 2em
+    background-color: $red
+    position: relative
+    top: -.5em
+  .clone-status
+    padding: 1em
+    overflow: hidden
+    margin: 0 0 1em 0
+    background: $midnight
+    .btn
+      float: right
+    .message
+      float: left
+      padding: 10px 0
+    .status
+      float: left
+      padding: 10px 10px 10px 0
+      font-weight: bold
+      color: lighten($midnight, 50%)
+      
+  .repository
+    width: 90%
+  .info
+    width: 90%
+    padding-right: 5em
+    input[type=number]
+      &::-webkit-inner-spin-button, &::-webkit-outer-spin-button
+        -webkit-appearance: none
+        margin: 0
+  .post_deploy_processes
+    li:last-child
+      margin-top: 1em
+  .btn.remove
+    position: absolute
+    right: 3%
+    margin-top: -2.3em
+    background-color: $red
+    &:hover
+      background-color: darken($red, 4%)
+
+fieldset
+  margin: 3em 0
+select
+  font-size: 16px
+input
+  font-size: 16px
+
+.tabs
+  overflow: hidden
+  padding: 0 0 3em 0
+  li
+    width: 33%
+    float: left
+    text-align: center
+    letter-spacing: 1px
+    text-transform: uppercase
+    padding: 10px 0
+    a
+      color: #B0D9EB
+      display: inline-block
+      vertical-align: middle
+    a.disabled
+      color: #50798B
+      &:hover, &:focus, &:active
+        cursor: not-allowed
+        text-decoration: none
+    a.active
+      overflow: hidden
+      font-weight: bold
+      padding: 10px 20px
+      margin: -10px 0 0 0
+      +border-radius(20px)
+      background: rgba(0,0,0,.25)
+    &:after
+      float: left
+      content: ""
+      width: 10px
+      height: 10px
+      margin: 3px 0 0 0
+      background: #40697B
+      +border-radius(20px)
+    &:first-child:after
+      display: none
+
+.add-credit-card
+  margin-top: 3em
+  div
+    margin: 1em 0
+  .card-number
+    width: 15em
+  .card-cvc
+    width: 5em
+  .card-expiry
+    color: $l-sky
+    margin-top: .25em
+  .card-number, .card-expiry, .card-expiry-month
+    float: left
+    margin-right: 1em
+
+#add-credit-card
+  .card-expiry-month, .card-expiry-year
+    display: inline
+    margin: 1em .5em 0 0

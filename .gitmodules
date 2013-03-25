@@ -1,0 +1,3 @@
+[submodule "vendor/repos/igata_test"]
+	path = vendor/repos/igata_test
+	url = git@github.com:dockyard/igata_test.git

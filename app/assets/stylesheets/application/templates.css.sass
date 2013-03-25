@@ -1,0 +1,269 @@
+@import compass/css3
+
+$sky: #45A4FF
+$midnight: #16222F
+$l-sky: #BBDAF9
+$white: #FFFFFF
+$red: #F05051
+
+.templates
+  width: 960px
+  @media (max-width: 1070px)
+    width: auto
+  margin: 0 auto
+  li
+    display: inline
+    a
+      +border-radius(5px)
+      overflow: hidden
+      position: relative
+      text-decoration: none
+      &:nth-child(4n+4)
+        margin-right: 0
+      float: left
+      width: 300px
+      margin: 0 10px 20px 10px
+      &:hover
+        box-shadow: 0 1px 15px lighten($midnight, 35%)
+        .description
+          height: 174px
+          &:before
+            top: 250px
+        .title
+          background: $sky
+          color: $midnight
+      img
+        width: 300px
+        height: 200px
+        display: block
+        +border-radius(0 0 5px 5px)
+      p.description
+        left: 0
+        right: 0
+        bottom: 0
+        height: 24px
+        padding: 13px
+        color: $l-sky
+        position: absolute
+        margin: -50px 0 0 0
+        +border-radius(0 0 5px 5px)
+        background-color: rgba(0,0,0,.8)
+        +transition-duration(.2s)
+        +transition-property(height)
+        +transition-timing-function(ease-in-out)
+        &:before
+          top: 0
+          content: ""
+          width: 100%
+          height: 50px
+          display: block
+          position: absolute
+          +border-radius(0 0 5px 5px)
+          margin: 0 -13px -50px -13px
+          +background-image(linear-gradient(rgba(0,0,0,0), rgba(0,0,0,1) 90%, rgba(0,0,0,1)))
+      p.title
+        padding: 13px
+        color: $l-sky
+        background-color: #111
+        +border-radius(5px 5px 0 0)
+        +transition-duration(.2s)
+        +transition-timing-function(ease-in-out)
+        +transition-property(background-color, color)
+        .price
+          float: right
+          opacity: .5
+
+
+#my_templates
+  .btn
+    clear: left
+    width: 106px
+    margin: 0 auto
+    display: block
+
+.template
+  margin: 0 auto
+  overflow: hidden
+  max-width: 1200px
+  .details
+    width: 60%
+    float: left
+    .images-wrapper
+      padding: 20px
+      overflow: auto
+      margin: 0 40px 0 0
+      background: rgba(0,0,0,.25)
+      .images
+        width: 10000px
+        img
+          float: left
+          padding: 0 20px 0 0
+
+    .readme, h2
+      padding: 0 40px 0 0
+    .readme
+      background: rgba(0,0,0,.25)
+      padding: 0 20px
+      overflow: hidden
+      margin: 1em 40px 20px 0
+      h1, h2, h3, h4, h5, h6, ul, ol, dl, p, blockquote, table
+        padding: 0
+        margin: 1em 0
+        color: #bbdaf9
+      ul, ol, dl
+        padding: 0 2em
+        line-height: 1.5
+      ul
+        list-style: square
+      ol
+        list-style: decimal
+      blockquote
+        padding: 0 2em
+        overflow: hidden
+        background: rgba(0,0,0,.25)
+  aside
+    width: 40%
+    float: left
+    h3
+      clear: both
+      color: #bbdaf9
+      overflow: hidden
+      margin: 1em 0
+    .purchase
+      padding: 10px
+      overflow: hidden
+      margin: 0 0 10px 0
+      border-radius: 5px
+      background: rgba(255,255,255,.1)
+      .price
+        float: left
+        padding: 13px
+        font-weight: bold
+        em
+          font-weight: normal
+      .btn
+        float: right
+        margin: 0 0 0 10px
+      .action
+        color: #3d4d1f
+        background: #a3cc52
+    .deploy
+      .btn
+        float: right
+        padding: 10px
+
+    form
+      width: auto
+      .overflow
+        overflow: hidden
+      .actions
+        margin: 0
+        overflow: hidden
+      .notice
+        display: none
+        color: #a3cc52
+        line-height: 1.5
+        padding: 10px 20px
+        background: rgba(0,0,0,.5)
+        margin: 10px -10px -10px -10px
+      .hidden
+        display: none
+    #deployed_templates, #deployed_demos
+      .confirmation
+        padding: 10px
+        margin: 10px 0
+        overflow: hidden
+        +border-radius(5px)
+        background: rgba(255, 255, 255, .1)
+        h2
+          color: $red
+          padding: 10px
+          background: #B20
+          text-align: center
+          margin: -10px -10px 0 -10px
+        p
+          margin: 10px 0
+        form
+          div
+            display: inline
+            input
+              width: 50%
+          .btn
+            float: right
+            margin: 0 0 0 10px            
+      .app
+        padding: 10px
+        margin: 10px 0
+        overflow: hidden
+        +border-radius(5px)
+        background: rgba(255, 255, 255, .1)
+        .header
+          overflow: hidden
+        .status
+          padding: 10px
+          overflow: auto
+          font-size: 14px
+          line-height: 1.5
+          max-height: 200px
+          background: rgba(0, 0, 0, .5)
+          color: rgba(255, 255, 255, .5)
+          margin: 10px -10px -10px -10px
+          font-family: "InconsolataMedium", monospace
+          ul
+            padding: 0
+            li
+              background: none
+              margin: 0
+              padding: 0
+      .deployed .app, .expired .app
+        background: rgba(0,0,0,.5)
+        border-left: 16px solid #9C3
+        .status
+          display: none
+        .git, .time_left
+          display: block
+          font-size: 12px
+        .remove
+          cursor: pointer
+      .expired .app
+        border-right: none
+      .deploying .app, .pending .app
+        img
+          float: right
+      .failed .app
+        color: #F42
+        font-weight: bold
+        background: rgba(255,0,0,.25)
+        .failure
+          float: left
+          clear: left
+          opacity: .6
+          display: block
+          font-size: 12px
+          font-weight: normal
+      .title
+        float: left
+      .remove
+        color: #500
+        width: 50px
+        height: 50px
+        float: right
+        margin: -10px
+        font-size: 1.5em
+        background: #B20
+        line-height: 50px
+        text-align: center
+        text-decoration: none
+        &:hover
+          color: #700
+          background: #C30
+        
+
+@media (max-width: 800px)
+  .template
+    .details, aside
+      margin: 0
+      float: none 
+      width: auto
+      .readme, .images-wrapper
+        margin: 1em 0

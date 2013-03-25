@@ -1,0 +1,32 @@
+$ ->
+  Stripe.setPublishableKey('<%= Settings['stripe']['public_key'] %>')
+
+  processCreditCard = ->
+    form = $(this)
+    form.find('input[type="submit"]').attr('disabled', 'disabled')
+
+    card =
+      number:    $('input.card-number').val(),
+      cvc:       $('input.card-cvc').val(),
+      exp_month: $('select.card-expiry-month').val(),
+      exp_year:  $('select.card-expiry-year').val()
+
+    if card.number.length > 0
+      Stripe.createToken(card, handleStripeResponse)
+      false
+
+  handleStripeResponse = (status, response) ->
+    form = $('form.credit-card')
+    if status == 200
+      form.append $('<input />', 
+        type: 'hidden',
+        name: 'account[stripe_token]',
+        value: response['id'])
+
+      form.get(0).submit()
+    else
+      alert(response.error.message)
+      form.find('input[type="submit"]').attr('disabled', null)
+
+
+  $('form.credit-card').on('submit', processCreditCard)

@@ -1,0 +1,6 @@
+%ul
+  - for repository in @repositories
+    %li
+      %a{:href => '#', 'data-git-url' => repository.git_url, 'data-organization' => repository.organization,
+         'data-api-url' => repository.api_url}
+        = repository.name

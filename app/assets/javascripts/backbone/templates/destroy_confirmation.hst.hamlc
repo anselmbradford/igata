@@ -1,0 +1,8 @@
+%h2 Slow down
+%p There is no undoing this action, you cannot recover your application once it is deleted. If you would still like your application, please type the name of it below.
+
+%form
+  %div
+    %input.application-name.string{:type => 'text'}
+  %input.btn.destroy{:value => 'Destroy', :type => 'submit'}
+  %input.btn.cancel{:value => 'Cancel', :type => 'submit'}

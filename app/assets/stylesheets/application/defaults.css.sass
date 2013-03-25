@@ -1,0 +1,153 @@
+@import compass/reset
+@import compass/css3
+
+$sky: #45A4FF
+$midnight: #16222F
+$l-sky: #BBDAF9
+$white: #FFFFFF
+$red: #F05051
+
++font-face('geared-slab', font-files('/assets/gearedslab.svg', '/assets/gearedslab.woff', '/assets/gearedslab.eot'))
++font-face('league-gothic', font-files('/assets/leaguegothic.svg', '/assets/leaguegothic.woff', '/assets/leaguegothic.eot'))
+
+*
+  margin: 0
+
+html, body
+  height: 100%
+
+.wrapper
+  min-height: 100%
+  height: auto !important
+  height: 100%
+  margin: 0 auto -10em
+
+html
+  font-family: helvetica, sans-serif
+  color: $l-sky
+  -webkit-font-smoothing: antialiased
+  font-smoothing: antialiased
+  body
+    background:
+      repeat: repeat
+      image: url(/assets/bg.png)
+      color: #1e3346
+  a
+    color: lighten($midnight, 50%)
+    text-decoration: none
+    &:hover, &:focus, &:active
+      text-decoration: underline
+  p
+    line-height: 1.5
+
+  .btn, .fancy
+    width: auto
+    border: none
+    padding: 10px
+    color: #5290cc
+    cursor: pointer
+    +border-radius(4px)
+    background-color: #191b19
+    +background-image(linear-gradient(#191b19, #080908))
+    font:
+      size: 16px
+      family: arial, sans-serif
+    text-decoration: none
+    &:hover
+      color: #45A4FF
+      text-decoration: none
+      background-color: #090b09
+      +background-image(linear-gradient(#090b09, #000))
+    &.disabled
+      cursor: not-allowed	
+      color: darken($sky, 40%)
+      background: darken($sky, 20%)
+    &.secondary
+      color: darken($sky, 40%)
+      background: $sky
+    &.forgot
+      background: none
+#main, .wrap
+  width: 90%
+  margin: 0 auto
+  max-width: 960px
+
+#main
+  padding: 6em 0
+  overflow: hidden
+
+#sign_in, #sign_up, #password_reset, #screenshot_new
+  width: 480px
+  margin: 2em auto
+  h2, p
+    margin-bottom: .5em
+.hidden
+  display: none
+
+.flash
+  padding: 1em
+  color: $white
+  overflow: hidden
+  position: absolute
+  width: 100%
+  p
+    text-align: center
+  background-color: rgba(187,218,249,.15)
+  &:hover
+    cursor: pointer
+  .dismiss
+    color: $sky
+    width: 24px
+    height: 24px
+    left: 1em
+    display: inline-block
+    line-height: 1.5
+    position: relative
+    text-align: center
+    +border-radius(12px)
+    background: rgba(0,0,0,.5)
+
+h1, h2, h3, h4, a
+  color: $sky
+  word-wrap: break-word
+h1
+  font:
+    size: 48px
+    family: 'geared-slab'
+  text-align: center
+  margin-bottom: 1em
+h2
+  font:
+    size: 36px
+    family: 'geared-slab'
+h3
+  font:
+    weight: bold
+    size: 1.25em
+  margin: 2em 0 1em
+h4
+  font-size: 1em
+  
+pre
+  code
+    margin: 1em 0
+    padding: 1em
+    display: block
+    overflow: hidden
+    background: rgba(0,0,0,.25)
+    font-family: Consolas, monospace
+
+.error
+  #main
+    padding: 3em 0
+  img, svg
+    margin: 0 auto
+    display: block
+  p
+    text-align: center
+    margin: 1em 0
+  #main
+    h1
+      margin: 0
+      em
+        opacity: .25

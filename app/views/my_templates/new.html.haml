@@ -1,0 +1,43 @@
+#my_templates_new
+  %h1 New Template
+  %meta{:name => 'dyno_cost', :content => @template.dyno_cost_in_cents}
+  %meta{:name => 'dyno_count', :content => @template.dyno_count}
+
+  %ol.steps
+
+  .preview
+
+  = simple_form_for @template, :url => new_template_path, :validate => true, :html => { :class => 'hide-label', :multipart => true } do |f|
+    .repository
+      %p
+        Where is the git repo for this template?
+      .buttons
+        = link_to 'Github', '#', :class => 'github-btn btn', :data => {:linked => current_account.github_identity.present?}
+        %span or
+        = link_to 'Enter manually', '#', :class => 'manual-btn btn'
+      .github
+        .repositories
+          %h3
+            Retrieving your repositories...
+            %img{:src => '/assets/ajax-loader.gif' }
+
+        = f.input :uri, :as => :hidden, :input_html => {:id => 'github_uri'}
+        = f.input :github_organization, :as => :hidden
+        = f.input :github_api_url, :as => :hidden
+      .manual
+        = f.input :uri, :placeholder => 'URI', :input_html => {:id => 'manual_uri'}
+    .info
+      = f.input :name, :placeholder => 'Template Name'
+      = f.input :developer_cost, :placeholder => 'Template Price', :label => 'Template Price'
+      .readme
+        = f.input :readme, :placeholder => 'Write in Markdown. If no readme will take from README.md.'
+    .screenshots
+      %h3 Add Screenshots
+      = f.input :screenshots_attributes, :as => :screenshots, :count => 4
+      = f.submit 'Create', :class => 'btn'
+:javascript
+  $(function(){
+    app = {};
+    app.router = new Igata.Routers.MyTemplateNew();
+    Backbone.history.start();
+  });

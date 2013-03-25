@@ -1,0 +1,6 @@
+#password_reset
+  %h2 Password Reset
+  = simple_form_for @identity, :validate => true, :url => main_app.edit_password_path(params[:reset_token]) do |f|
+    = f.input :password, :placeholder => 'Password'
+    = f.input :password_confirmation, :placeholder => 'Confirm Password'
+    = f.submit 'Submit', :class => 'btn'

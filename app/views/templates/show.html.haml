@@ -1,0 +1,38 @@
+.template
+  .details
+    %h2= @template.name
+    .readme
+      = render_markdown @template.readme
+    - if @template.screenshots.present?
+      .images-wrapper
+        .images
+          = render :partial => 'screenshot', :collection => @template.screenshots
+
+  %aside
+    .purchase.demo
+      = simple_form_for @template.template_demos.build, :url => demo_template_path(@template.account, @template), :remote => true do |f|
+        %span.price
+          Free
+          %em (5 minute demo)
+        .actions
+          = f.button :submit, 'Demo', :confirm => 'This will create a demo of this application that is valid for 5 minutes', :disable_with => 'Processing...', :class => 'action'
+        .notice
+    .deploy
+      %ul#deployed_demos
+
+    .purchase
+      = simple_form_for @template.template_purchases.build, :url => purchase_template_path(@template.account, @template), :remote => true do |f|
+        .actions
+          %span.price= @template.formatted_price
+          = f.button :submit, 'Purchase', :confirm => "This action will charge #{@template.formatted_price} to your credit card.", :disable_with => 'Purchasing...', :class => 'action'
+        .notice
+    .deploy
+      %ul#deployed_templates
+
+    :javascript
+      $(function(){
+        var purchaseView = new Igata.Views.TemplatesShowPurchase({json: #{@purchases.to_json}});
+        purchaseView.render();
+        var demoView = new Igata.Views.TemplatesShowDemo({json: #{@demos.to_json}});
+        demoView.render();
+      });

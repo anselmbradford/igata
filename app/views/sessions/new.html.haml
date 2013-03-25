@@ -1,0 +1,9 @@
+#sign_in
+  %h2 Sign in
+  = simple_form_for @identity || EasyAuth.password_identity_model.new, :validate => true, :url => sign_in_path do |f|
+    .string
+      = f.input :uid, :label => 'Username or Email', :validate => {:uniqueness => false}
+    .password
+      = f.input :password, :validate => {:confirmation => false}
+      = f.button :submit, 'Sign in'
+      = link_to 'Forgot password', password_reset_path, :class => 'btn forgot'

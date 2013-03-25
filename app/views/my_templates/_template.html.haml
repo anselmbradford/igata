@@ -1,0 +1,10 @@
+%li{:id => "template-#{template.id}", :class => :template}
+  %a{:href => edit_template_path(template)}
+    %p.title
+      = truncate(template.name, :length => 30)
+      %span.price= template.formatted_price
+    - if template.screenshots.first
+      = image_tag template.screenshots.first.image.thumb
+    - else
+      = image_tag Screenshot.new.image.thumb
+    %p.description= truncate(template.name, :length => 255)

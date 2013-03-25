@@ -1,0 +1,9 @@
+%h3 Github Repositories
+
+- for organization in @models
+  .organization
+    %h4
+      %a{:href => '#'}
+        %img{:src => organization.get('image'), :alt => organization.get('organization'), :title => organization.get('organization')}
+        = organization.get('organization')
+    != JST['backbone/templates/my_templates/new/_repository_list']({repositories: organization.get('repos')})

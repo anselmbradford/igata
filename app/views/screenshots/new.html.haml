@@ -1,0 +1,6 @@
+#screenshot_new
+  %h2 Add a Screenshot
+  %p Best if images are cropped to 500px by 400px. JPG's, GIF's and PNG's only.
+  = simple_form_for @screenshot, :html => { :class => 'hide-label' }, :url => new_screenshot_path do |f|
+    = f.input :image
+    = f.submit 'Create Screenshot', :class => 'btn'

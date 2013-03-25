@@ -1,0 +1,3 @@
+%li{ :id => "screenshot-#{screenshot.id}", :class => 'thumb' }
+  = image_tag screenshot.image.thumb.url
+  = link_to 'Delete', screenshot_path(screenshot.template, screenshot), :method => :delete

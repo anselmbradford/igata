@@ -1,0 +1,5 @@
+= credit_card.input :card_number, :label => 'Card number', :wrapper_html => { :class => 'card-number' }, :input_html => { :class => 'card-number', :name => '' , :placeholder => 'Card Number'}
+= credit_card.input :card_cvc, :label => 'CVC', :wrapper_html => { :class => 'card-cvc' }, :input_html => { :class => 'card-cvc', :name => '' , :placeholder => 'CVC'}
+%h4.card-expiry Valid until
+= credit_card.input :card_expiry_month, :label => 'Month', :collection => Igata::Months, :wrapper_html => { :class => 'card-expiry-month' }, :input_html => { :class => 'card-expiry-month', :name => '' }
+= credit_card.input :card_expiry_year, :label => 'Year', :collection => Igata::Years, :wrapper_html => { :class => 'card-expiry-year' }, :input_html => { :class => 'card-expiry-year', :name => '' }

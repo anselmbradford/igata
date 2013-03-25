@@ -1,0 +1,31 @@
+- switch @model.get('state')
+  - when 'pending'
+    .app
+      .header
+        %span.title Pending...
+        %img{:src => '/assets/ajax-loader.gif' }
+  - when 'deploying'
+    .app
+      .header
+        %span.title= @model.get('app_name') || 'Fetching name...'
+        %img{:src => '/assets/ajax-loader.gif' }
+      .status
+        %ul
+          - for state in @model.get('state_messages')
+            %li= state
+  - when 'deployed'
+    .app
+      %a.remove ×
+      .header
+        %a{:href => @model.get('web_url'), :target => '_blank'}= @model.get('app_name')
+        %span.git= @model.get('git_url')
+      .status
+        %ul
+          - for state in @model.get('state_messages')
+            %li= state
+          %li Complete
+  - when 'failed'
+    .app
+      %a.remove ×
+      %span.title= @model.get('app_name')
+      %span.failure Failed to deploy application

@@ -1,0 +1,4 @@
+%h1= @purchased_template.name
+
+- if @slug_url
+  = link_to @slug_url, @slug_url, :id => :slug_url

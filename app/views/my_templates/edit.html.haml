@@ -1,0 +1,39 @@
+#my_templates_edit
+  %header
+    %h2
+      = @template.name
+      .actions
+        = link_to 'Delete Template', [:edit, @template], :class => 'btn delete', :method => :delete, :confirm => 'Are you sure you want to delete this template?'
+      .notice
+
+  .clone-status
+    %span.status
+      Last Git Status:
+    %span.message
+      #{@template.state_summary} 
+      - if @template.state_message.present?
+        \- #{@template.state_message}
+
+  = simple_form_for @template, :url => edit_template_path do |f|
+    .info
+      = f.input :name, :placeholder => 'Template Name', :label => 'Template Name'
+      = f.input :developer_cost, :placeholder => 'Template Price', :label => 'Template Price'
+      - if @template.can_clone? || @template.has_clone_pending?
+        = f.input :uri, :placeholder => 'URI', :label => 'URI', :readonly => @template.has_clone_pending?
+      - else
+        .string.input
+          %label URI
+          %p= @template.uri
+      .readme
+        %h3 readme
+        = f.input :readme, :placeholder => 'readme'
+    .screenshots
+      %h3 Screenshots
+      %ul
+        = render :partial => 'screenshot', :collection => @template.screenshots
+      -if @template.screenshots.count < 4
+        = link_to 'Add a screenshot', new_screenshot_path(@template), :class => 'btn'
+    = f.submit 'Update', :class => 'btn'
+:javascript
+  var model = new Igata.Models.MyTemplate({ id: #{@template.id}, state: #{@template.state} })
+  new Igata.Views.MyTemplateEditForm({ model: model })

@@ -1,0 +1,5 @@
+#password_reset
+  %h2 Password Reset
+  = simple_form_for @identity, :html => { :class => 'hide-label' }, :url => main_app.password_reset_path, :method => :post do |f|
+    = f.input :username, :placeholder => 'Email'
+    = f.submit 'Submit', :class => 'btn'

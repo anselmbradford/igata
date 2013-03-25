@@ -1,0 +1,84 @@
+---
+development:
+  clone_status:
+    # Pending clone
+    1001:        Awaiting git clone
+    1020:        Unable to automatically give Igata access
+    1021:        Added Igata user as a repository collaborator
+    1022:        Unable to add Igata user as a repository collaborator
+    1023:        Added Igata user and Igata team to repository
+    1024:        Unable to add Igata user and Igata team to repository
+    1025:        Cloning repository
+
+    # Success
+    2001:        Successfully pulled the latest changes.
+    2020:        Successfully cloned.
+    2040:        No changes pulled, already up to date
+
+    # Pending pull
+    3031:        Awaiting git pull
+    3032:        Pulling latest repository changes
+
+    # Failed clone - client
+    4030:        Could not read from the remote repository
+    4040:        Repository not found
+
+    # Failed clone - server
+    5001:        Unable to clone repository.
+    5002:        Unable to parse igata.yml file.
+
+    # Failed pull  - client
+    6030:        Could not read from the remote repository
+    6040:        Repository not found
+
+    # Failed pull  - server
+    7001:        Unable to pull the latest changes.
+    7002:        Unable to parse igata.yml file.
+  heroku:
+    username: user@example.com
+    api_key: abcdefg1234567
+  stripe:
+    secret_key: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    public_key: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+
+test:
+  clone_status:
+    # Pending clone
+    1001:        Awaiting git clone
+    1020:        Unable to automatically give Igata access
+    1021:        Added Igata user as a repository collaborator
+    1022:        Unable to add Igata user as a repository collaborator
+    1023:        Added Igata user and Igata team to repository
+    1024:        Unable to add Igata user and Igata team to repository
+    1025:        Cloning repository
+
+    # Success
+    2001:        Successfully pulled the latest changes.
+    2020:        Successfully cloned.
+    2040:        No changes pulled, already up to date
+
+    # Pending pull
+    3031:        Awaiting git pull
+    3032:        Pulling latest repository changes
+
+    # Failed clone - client
+    4030:        Could not read from the remote repository
+    4040:        Repository not found
+
+    # Failed clone - server
+    5001:        Unable to clone repository.
+    5002:        Unable to parse igata.yml file.
+
+    # Failed pull  - client
+    6030:        Could not read from the remote repository
+    6040:        Repository not found
+
+    # Failed pull  - server
+    7001:        Unable to pull the latest changes.
+    7002:        Unable to parse igata.yml file.
+  heroku:
+    username: user@example.com
+    api_key: abcdefg1234567
+  stripe:
+    secret_key: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    public_key: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX

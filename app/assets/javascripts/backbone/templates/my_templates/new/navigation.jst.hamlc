@@ -1,0 +1,3 @@
+- for node in @model
+  %li{'data-route' => node.location}
+    %a.disabled{:href => "##{node.location}"}= "#{node.number}. #{node.name}"

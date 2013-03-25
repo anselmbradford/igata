@@ -1,0 +1,36 @@
+%ul.tabs
+  %li
+    %a{:href => '#account-information'}
+      Account Information
+  %li
+    %a{:href => '#password'}
+      Change Password
+  %li
+    %a{:href => '#add-credit-card'}
+      Credit Card
+
+= simple_form_for current_account, :validate => true, :url => edit_account_path, :html => { :class => 'credit-card' } do |f|
+  #account-information
+    %h2 Account Information
+    = f.input :name, :placeholder => 'Name'
+    = f.input :email, :placeholder => 'Email'
+    = f.input :username, :placeholder => 'Username'
+  #password
+    %h2 Change Password
+    = f.input :password, :placeholder => 'Password'
+    = f.input :password_confirmation, :placeholder => 'Confirm Password'
+  #add-credit-card
+    - if current_account.has_active_card?
+      .card
+        %h2 Credit Card
+        %p
+          Card number:
+          = current_account.credit_card_disguised_number
+        %p
+          Expires:
+          = current_account.credit_card_expiration_date.to_s(:month_and_year)
+        %h3 Replace Current Credit Card
+    - else
+      %h2 Add Credit Card
+    = render :partial => 'accounts/credit_card', :locals => { :credit_card => f }
+  = f.submit 'Update', :class => 'btn'

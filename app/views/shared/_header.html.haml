@@ -1,0 +1,13 @@
+.wrap
+  .logo
+    %a{:href => root_path}
+      %img{:src => '/assets/logo.png', :alt => 'igata cloud icon'}
+      %h1
+        igata
+  %ul
+    %li= active_link_to 'How It Works', how_it_works_path
+    %li= active_link_to 'Templates', root_path, :active => [['templates', 'landing'], []]
+    - if account_signed_in?
+      = render :partial => 'shared/session_header'
+    - elsif account_not_signed_in?
+      = render :partial => 'shared/no_session_header'

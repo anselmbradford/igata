@@ -1,0 +1,7 @@
+#my_templates
+  %ul.steps
+    %li.active= link_to 'My Templates', my_templates_path
+    %li= link_to 'My Purchases', purchased_templates_path
+  %ul.templates
+    = render :partial => 'template', :collection => @templates
+  = link_to 'Add Template', new_template_path, :class => 'btn'

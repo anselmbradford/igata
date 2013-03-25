@@ -1,0 +1,16 @@
+.content
+  .banner
+    preview
+  %h3
+    Source
+  %p.source
+  %h3
+    Title
+  %p.title
+  %h3
+    Price
+  %p.price
+  %h3
+    Readme
+  .markdown.readme
+    %p Will be parsed from README.md if present
